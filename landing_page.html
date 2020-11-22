@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" rel="stylesheet" type="text/css" />
+    <script src="apicall.js"></script>
+</head>
+
+<body class="pagebackgournd">
+    <div style="background-color: rgba(0, 0, 0, 0.315);height: 75px;">
+
+    </div>
+    <div class="stats">
+        <div style="background-color: aqua;text-align: center;">
+            <p>
+                CASES : 2500
+            </p>
+        </div>
+        <div style="background-color: rgb(55, 12, 90);margin-top: 5%;text-align: center;">
+            <p>
+                cases
+            </p>
+        </div>
+        <div style="background-color: rgb(11, 141, 98);margin-top: 5%;text-align: center;">
+            <p>
+                cases
+            </p>
+        </div>
+
+    </div>
+
+    <div class="graphdiv">
+
+        <canvas id="myChart"></canvas>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'July', 'July', 'July', ],
+            datasets: [{
+                label: 'cases',
+                backgroundColor: 'rgba(255, 120, 132,0)',
+
+                borderColor: 'rgb(175, 100, 100)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            legend: {
+
+
+
+
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'rgb(44, 54, 68)'
+                }
+            }
+        }
+    });
+</script>
