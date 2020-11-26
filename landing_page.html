@@ -10,73 +10,114 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" rel="stylesheet" type="text/css" />
     <script src="apicall.js"></script>
+
 </head>
 
 <body class="pagebackgournd">
-    <div style="background-color: rgba(0, 0, 0, 0.315);height: 75px;">
+
+    <img style="height:50%; margin-top: 100px ;margin-right:  10% ;display: flex;position: absolute;z-index: -20;justify-self: center;justify-content: center;display: none;"
+        src="images/corona.png" alt="">
+    <img src="images/corona_babes.png" alt="" class="babes" id="loading">
+
+    <div style="background-color: rgba(0, 0, 0, 0.315);height: 75px;display: none;justify-content: space-between;">
+
+        <header
+            style="text-align: center;position: relative;padding-top: 15px;font-size: 35px;color: rgb(255, 255, 255);">
+            CovidZ</header>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div style="text-align: center;padding-top:2% ;">
+        <header style="font-size: 35px;color: white;align-items: center;">
+            Algeria Covid-19 stats
+        </header>
 
     </div>
     <div class="stats">
-        <div style="background-color: aqua;text-align: center;">
-            <p>
-                CASES : 2500
-            </p>
+        <div class="confirmed" >
+            <div style="display: inline-flex;">
+                <p>
+                    confirmed :
+                </p>
+                <p id="confirmed"></p>
+            </div>
+            <div style="margin-left: 15%;">
+                <p id="confirmed_change">
+                    confirmed :
+                </p>
+            </div>
         </div>
-        <div style="background-color: rgb(55, 12, 90);margin-top: 5%;text-align: center;">
+
+        <div class="active">
             <p>
-                cases
+                active :
             </p>
+            <p id="active"></p>
+            <div style="margin-left: 15%;">
+                <p id="active_change">
+                    active :
+                </p>
+            </div>
+
         </div>
-        <div style="background-color: rgb(11, 141, 98);margin-top: 5%;text-align: center;">
+        <div class="deaths">
             <p>
-                cases
+                deaths :
             </p>
+            <p id="deaths"></p>
+            <div style="margin-left: 15%;">
+                <p id="deaths_change">
+                    deaths :
+                </p>
+            </div>
+        </div>
+        <div class="recovered">
+            <p>
+                recovered :
+            </p>
+            <p id="recovered"></p>
+            <div style="margin-left: 15%;">
+                <p id="recovered_change">
+                    recovered :
+                </p>
+            </div>
         </div>
 
     </div>
-
-    <div class="graphdiv">
-
-        <canvas id="myChart"></canvas>
-
-
-
+    <div style="text-align: center;">
+        <header style="font-size: 40px;padding: 0px;color: white;margin-top: 1%;">
+            Active Cases Graph</header>
     </div>
 
+
+    <div class="graphdiv" style="background-color: rgb(99, 24, 99);">
+        <canvas id="confirmed_chart">
+
+        </canvas>
+    </div>
+    <div style="text-align: center;">
+        <header style="font-size: 40px;padding: 0px;color: white;margin-top: 1%;">
+            Confirmed  Cases Graph</header>
+    </div>
+    <div class="graphdiv" style="background-color: rgb(39, 155, 87);">
+        <canvas id="active_chart">
+
+        </canvas>
+    </div>
+    <div style="text-align: center;">
+        <header
+            style="font-size: 40px;padding: 0px;color: white;margin-top: 1%;">
+            Deaths Cases Graph</header>
+    </div>
+    <div class="graphdiv" style="background-color: blue;">
+
+        <canvas id="death_chart">
+
+        </canvas>
+    </div>
 
 </body>
 
 </html>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'July', 'July', 'July', ],
-            datasets: [{
-                label: 'cases',
-                backgroundColor: 'rgba(255, 120, 132,0)',
-
-                borderColor: 'rgb(175, 100, 100)',
-                data: [0, 10, 5, 2, 20, 30, 45]
-            }]
-        },
-
-        // Configuration options go here
-        options: {
-            legend: {
-
-
-
-
-                labels: {
-                    // This more specific font property overrides the global property
-                    fontColor: 'rgb(44, 54, 68)'
-                }
-            }
-        }
-    });
+    // document.getElementById("babes").style.rotate="45deg";
 </script>

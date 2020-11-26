@@ -1,22 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .pagebackgournd {
-    
+    background-attachment: fixed;
     margin: 0px;
     background-color: rgb(44, 54, 68);
+    font-family: Roboto, Times;
+    font-weight: bold;
 
 }
-.stats{
-    padding: 2% 5% ;
-    background-color: rgba(0, 0, 0, 0.25);
-    margin-left: 20%;
-    margin-right: 20%;
+
+.babes {
+
+    height: 50%;
+    margin-top: 60px;
+    margin-left: 55%;
+    margin-right: 10%;
+    display: none;
+    position: absolute;
+    z-index: -20;
+
+}
+
+#loading {
+    -webkit-animation: rotation 400s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+
+.stats {
+    padding: 0px;
+    background-color: rgba(33, 41, 51, 0);
+
     margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0);
+
+
+    white-space: nowrap;
+
 }
 
 .graphdiv {
-    background-color: rgba(0, 0, 0,0.25);
+    background-color: rgba(0, 0, 0, 0);
     align-self: center;
     align-content: center;
-    margin: 8% 15% 10%;
+    margin: 0% 15% 10%;
     padding: 1%;
 
 
@@ -25,8 +61,50 @@
 
 .graph {
 
-    background-color: rgb(22, 59, 128);
+    background-color: rgb(78, 179, 53);
     width: 100%;
     height: 100%;
 
+}
+
+.active {
+
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(199, 100, 100);
+}
+
+.confirmed {
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(189, 119, 40);
+    background-color: rgb(83, 20, 85);
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+.deaths {
+
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+}
+
+.recovered {
+
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(54, 119, 70);
 }
