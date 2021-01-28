@@ -1,12 +1,18 @@
 
 
 async function request() {
+    
     var request = await fetch('https://api.covid19api.com/country/Algeria');
     //var request = await fetch('https://api.covid19api.com/country/Algeria',{ countryCode: "DZ" });
     
     var data = await request.json();
    
-    alert(JSON.stringify( data));
+    if(data!=null){
+       document.getElementById("loading-hide").classList.remove("loading-hide");
+       document.getElementById("loading-show").classList.remove("loading-show");
+       document.getElementById("loading-show").classList.add("loading-hide");
+    }
+    
     var lab = [];
     var actives = [];
     var confirm=[];
@@ -29,21 +35,26 @@ async function request() {
     var recovered_change = (data[data.length-1].Recovered)-(data[data.length-2].Recovered);
     if(active_change>0)
     {
-        document.getElementById("active_change").innerHTML="⬆";
+        document.getElementById("active_change").innerHTML="+";
     }
     else{
-        document.getElementById("active_change").innerHTML="⬇";
+        document.getElementById("active_change").innerHTML="-";
 
     }
-    document.getElementById("confirmed_change").innerHTML = ("⬆"+ confirmed_change);
+    document.getElementById("confirmed_change").innerHTML = ("+"+ confirmed_change);
     document.getElementById("active_change").innerHTML += (active_change);
-    document.getElementById("deaths_change").innerHTML = ("⬆"+ deaths_change);
-    document.getElementById("recovered_change").innerHTML = ("⬆"+ recovered_change);
+    document.getElementById("deaths_change").innerHTML = ("+"+ deaths_change);
+    document.getElementById("recovered_change").innerHTML = ("+"+ recovered_change);
     
-    var con_ctx = document.getElementById('confirmed_chart').getContext('2d');
-    var act_ctx = document.getElementById('active_chart').getContext('2d');
-    var death_ctx = document.getElementById('death_chart').getContext('2d');
-   
+    var con_ctx = document.getElementById('active_chart').getContext('2d');
+    var act_ctx = document.getElementById('confirmed_chart').getContext('2d');
+    var death_ctx = document.getElementById('deaths_chart').getContext('2d');
+   // Our labels along the x-axis
+
+    Chart.defaults.global.defaultFontColor = 'rgb(255, 255, 255)';
+    Chart.defaults.global.defaultFontSize = 10;
+    
+    
     var chart = new Chart(con_ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -54,9 +65,12 @@ async function request() {
             datasets: [{
                 label: 'Active',
                 backgroundColor: 'rgba(255, 120, 132,0)',
-
-                borderColor: 'rgb(175, 100, 100)',
+                borderWidth:5,
+                borderColor: 'rgb(255, 255, 255)',
+                pointBorderColor :'rgb(17, 10, 10,0)',
+                
                 data: actives
+
             }]
         },
 
@@ -69,7 +83,10 @@ async function request() {
 
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'rgb(44, 54, 68)'
+                    fontColor: 'rgb(255, 255, 255)'
+                    
+                    
+                    
                 }
             }
         }
@@ -83,9 +100,11 @@ async function request() {
             labels: lab,
             datasets: [{
                 label: 'Confirmed',
+                
                 backgroundColor: 'rgba(255, 120, 132,0)',
-
-                borderColor: 'rgb(175, 100, 100)',
+                borderWidth:5,
+                borderColor: 'rgb(255, 255, 255)',
+                pointBorderColor :'rgb(17, 10, 10,0)',
                 data: confirm
             }]
         },
@@ -99,7 +118,7 @@ async function request() {
 
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'rgb(44, 54, 68)'
+                    fontColor: 'rgb(255, 255, 255)'
                 }
             }
         }
@@ -113,9 +132,11 @@ async function request() {
             labels: lab,
             datasets: [{
                 label: 'Deaths',
+                
                 backgroundColor: 'rgba(255, 120, 132,0)',
-
-                borderColor: 'rgb(175, 100, 100)',
+                borderWidth:5,
+                borderColor: 'rgb(255, 255, 255)',
+                pointBorderColor :'rgb(17, 10, 10,0)',
                 data: deat
             }]
         },
@@ -129,7 +150,7 @@ async function request() {
 
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'rgb(44, 54, 68)'
+                    fontColor: 'rgb(255, 255, 255)'
                 }
             }
         }

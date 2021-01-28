@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-dz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+
+<body>
+    <script src="apicall.js"></script>
+  <div class="loading-show" id="loading-show">
+    <img src="images/return.svg" alt="">
+    
+   </div>
+    <div class="loading-hide" id="loading-hide" >
+    <header>
+        <div class="container">
+            <img src="images/logo.svg" alt="">
+           <h1>covid-dz</h1>
+
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="images/graphe.svg" alt="">
+        <h1>Get All Algeria Covid info here</h1>
+    </div>
+    <section class="general_cases">
+
+        <div class="container">
+            <h1>
+                Algeria Covid-19 Statistics
+            </h1>
+            <ul>
+
+                <li>
+                    <p>Active </p>
+                    <p class="active" id="active"> </p>
+                    <p class="active" id="active_change"> </p>
+
+                </li>
+                <li>
+                    <p>Confirmed </p>
+                    <p class="confirmed" id="confirmed"> </p>
+                    <p class="confirmed" id="confirmed_change"> </p>
+                </li>
+                <li>
+                    <p>Deaths </p>
+                    <p class="deaths" id="deaths"> </p>
+                    <p class="deaths" id="deaths_change"> </p>
+                </li>
+                <li>
+                    <p>Recovered </p>
+                    <p class="recovered" id="recovered"> </p>
+                    <p class="recovered" id="recovered_change"> </p>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+    <section class="graph_section">
+        <h2> Active Covid Cases Graph </h2>
+        <div> <canvas id="active_chart" width="400" height="200">
+
+
+            </canvas>
+        </div>
+
+
+    </section>
+    <section class="graph_section">
+        <h2> Confirmed Covid Cases Graph </h2>
+        <div><canvas id="confirmed_chart" width="400" height="200">
+
+            </canvas></div>
+
+    </section>
+    <section class="graph_section">
+        <h2> Covid deaths Graph </h2>
+        <div>
+            <canvas id="deaths_chart" width="400" height="200">
+
+            </canvas></div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="contacts">Contacts</p>
+            <ul>
+                <li>
+                    <p>Tele :</p>
+                    <a href="tel:+213671358050">+213671358050</a>
+                </li>
+                <li>
+                    <p>Facebook :</p>
+                    <a href="https://www.facebook.com/alla.rakik"><img src="images/facebook-app-logo.svg" alt=""></a>
+                </li>
+                <li>
+                    <p>Instagram :</p>
+                    <a href="https://www.instagram.com/allarakik/">https://www.instagram.com/allarakik/</a>
+                </li>
+            </ul>
+
+        </div>
+    </footer>
+</div>
+    
+</body>
+
+</html>
